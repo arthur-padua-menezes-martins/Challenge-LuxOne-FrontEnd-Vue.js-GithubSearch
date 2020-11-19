@@ -1,12 +1,19 @@
 import axios from 'axios'
 import {
+  IHttpResponse,
+  IHttpClientGet,
   IHttpClientGetParams
 } from './axios-http-client-protocols' 
 
-export class AxiosHttpClient {
-  async get (params: IHttpClientGetParams): Promise<void> {
+export class AxiosHttpClient implements IHttpClientGet<any> {
+  async get (params: IHttpClientGetParams): Promise<IHttpResponse<any>> {
     const { url } = params
 
-    await axios.get(url)
+    const httpResponse = await axios.get(url)
+    
+    return {
+      statusCode: httpResponse.status,
+      body: httpResponse.data
+    }
   }
 }
