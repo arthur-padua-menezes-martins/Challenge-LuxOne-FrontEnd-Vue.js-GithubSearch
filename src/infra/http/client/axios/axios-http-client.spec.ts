@@ -24,10 +24,10 @@ describe('AxiosHttpClient', () => {
   test('should call axios with correct url', async () => {
     const { systemUnderTest } = await makeSystemUnderTest()
 
-    systemUnderTest.get({
+    await systemUnderTest.get({
       url
     })
 
-    expect(mockedAxios).toHaveBeenCalledWith(url)
+    expect(mockedAxios.get).toHaveBeenCalledWith(url)
   })
 })

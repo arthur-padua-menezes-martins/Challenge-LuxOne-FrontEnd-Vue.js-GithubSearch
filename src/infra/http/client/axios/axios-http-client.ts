@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {
-  IHttpClientGet, IHttpClientGetParams
+  IHttpClientGetParams
 } from './axios-http-client-protocols' 
 
 export class AxiosHttpClient {
