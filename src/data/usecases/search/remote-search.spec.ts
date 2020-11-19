@@ -13,7 +13,7 @@ import {
 
 interface ISystemUnderTestTypes {
   systemUnderTest: RemoteSearch
-  httpClientGet: IHttpClientGet
+  httpClientGet: IHttpClientGet<any>
 }
 const makeSystemUnderTest = async (): Promise<ISystemUnderTestTypes> => {
   const httpClientGet = await mockHttpClientGet()

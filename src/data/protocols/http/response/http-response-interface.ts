@@ -6,6 +6,7 @@ export interface IHttpResponseBody {
   stars: number
 }
 
-export interface IHttpResponse {
-  body: IHttpResponseBody
+export interface IHttpResponse<T> {
+  statusCode: number
+  body: T
 }

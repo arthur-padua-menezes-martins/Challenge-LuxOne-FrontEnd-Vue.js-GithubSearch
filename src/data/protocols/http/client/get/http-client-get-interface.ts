@@ -6,7 +6,7 @@ export interface IHttpClientGetParams {
   url: string
 }
 
-export interface IHttpClientGet {
-  get: (params: IHttpClientGetParams) => Promise<IHttpResponse>
+export interface IHttpClientGet<T> {
+  get: (params: IHttpClientGetParams) => Promise<IHttpResponse<T>>
 }
 
