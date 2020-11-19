@@ -1,10 +1,11 @@
-import axios from 'axios'
 import {
   AxiosHttpClient
 } from './axios-http-client'
 import {
-  url,
-  axiosMockResult
+  makeMockedAxios, mockedAxiosResult
+} from './axios-http-client-make'
+import {
+  url
 } from './axios-http-client-utils'
 
 interface ISystemUnderTestTypes {
@@ -19,8 +20,7 @@ const makeSystemUnderTest = async (): Promise<ISystemUnderTestTypes> => {
 }
 
 jest.mock('axios')
-const mockedAxios = axios as jest.Mocked<typeof axios>
-mockedAxios.get.mockResolvedValue(axiosMockResult)
+const mockedAxios = makeMockedAxios()
 
 describe('AxiosHttpClient', () => {
   test('should call axios with correct method', async () => {
@@ -51,8 +51,8 @@ describe('AxiosHttpClient', () => {
     })
 
     expect(httpResponse).toEqual({
-      statusCode: axiosMockResult.status,
-      body: axiosMockResult.data
+      statusCode: mockedAxiosResult.status,
+      body: mockedAxiosResult.data
     })
   })
 })

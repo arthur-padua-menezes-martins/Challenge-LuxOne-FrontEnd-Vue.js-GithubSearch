@@ -10,10 +10,11 @@ export class AxiosHttpClient implements IHttpClientGet<any> {
     const { url } = params
 
     const httpResponse = await axios.get(url)
-    
+    const { status, data } = httpResponse
+
     return {
-      statusCode: httpResponse.status,
-      body: httpResponse.data
+      statusCode: status,
+      body: data
     }
   }
 }
