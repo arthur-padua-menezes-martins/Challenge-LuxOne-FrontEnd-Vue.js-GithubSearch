@@ -1,6 +1,6 @@
 import {
   IHttpResponse
-} from '../../response/http-response'
+} from '../../response/http-response-interface'
 
 export interface IHttpClientGetParams {
   url: string
