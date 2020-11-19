@@ -21,6 +21,16 @@ jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
 
 describe('AxiosHttpClient', () => {
+  test('should call axios with correct method', async () => {
+    const { systemUnderTest } = await makeSystemUnderTest()
+
+    await systemUnderTest.get({
+      url
+    })
+
+    expect(mockedAxios.get).toHaveBeenCalled()
+  })
+
   test('should call axios with correct url', async () => {
     const { systemUnderTest } = await makeSystemUnderTest()
 
