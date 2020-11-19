@@ -12,9 +12,7 @@ class HttpClientGetStub implements IHttpClientGet {
   constructor (
     private readonly client_id: string,
     private readonly client_secret: string
-  ) {
-
-  }
+  ) {}
 
   async get (params: IHttpClientGetParams): Promise<IHttpResponse> {
     const { url } = params

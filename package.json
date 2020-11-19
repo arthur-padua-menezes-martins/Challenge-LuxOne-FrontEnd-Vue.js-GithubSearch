@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "jest --passWithNoTests",
+    "test:watch": "npm test -- --watch"
   },
   "license": "ISC",
   "devDependencies": {

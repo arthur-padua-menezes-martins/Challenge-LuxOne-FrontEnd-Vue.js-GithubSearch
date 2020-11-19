@@ -6,13 +6,12 @@ import {
 
 export class RemoteSearch implements Search {
   constructor (
-    private readonly httpClientGet: IHttpClientGet,
-    private readonly url: string
+    private readonly httpClientGet: IHttpClientGet
   ) {}
 
   async search (params: ISearchParams): Promise<IHttpResponseBody> {
     const httpResponse = await this.httpClientGet.get({
-      url: this.url
+      url: params.url
     })
 
     return httpResponse.body
