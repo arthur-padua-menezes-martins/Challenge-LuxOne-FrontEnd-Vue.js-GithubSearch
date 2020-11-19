@@ -2,7 +2,7 @@ import {
   RemoteSearch
 } from './remote-search'
 import {
-  IHttpClientGet
+  IHttpClientGet, ISearchParams
 } from './remote-search-protocols'
 import {
   mockHttpClientGet
@@ -15,9 +15,9 @@ interface ISystemUnderTestTypes {
   systemUnderTest: RemoteSearch
   httpClientGet: IHttpClientGet
 }
-const makeSystemUnderTest = async () => {
+const makeSystemUnderTest = async (): Promise<ISystemUnderTestTypes> => {
   const httpClientGet = await mockHttpClientGet()
-  const systemUnderTest = new RemoteSearch(httpClientGet, url)
+  const systemUnderTest = new RemoteSearch(httpClientGet)
   
   return {
     systemUnderTest,
@@ -25,8 +25,17 @@ const makeSystemUnderTest = async () => {
   } 
 }
 
-describe('', () => {
-  test('', async () => {
-    const { systemUnderTest } = await makeSystemUnderTest()
+let httpRequest: ISearchParams = {
+  url: url
+}
+
+describe('RemoteSearch', () => {
+  test('should call httpClientGet with correct values', async () => {
+    const { systemUnderTest, httpClientGet } = await makeSystemUnderTest()
+
+    const spyOnGet = jest.spyOn(httpClientGet, 'get')
+    await systemUnderTest.search(httpRequest)
+
+    expect(spyOnGet).toHaveBeenCalledWith(httpRequest)
   })
 })
