@@ -1,4 +1,4 @@
-interface IHttpResponseBody {
+export interface IHttpResponseBody {
   organization: string
   location: string
   followers: number
