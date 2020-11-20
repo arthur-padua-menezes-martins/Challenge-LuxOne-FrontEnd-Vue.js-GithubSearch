@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/build/js";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -450,25 +450,14 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 
 /***/ }),
 
-/***/ "./src/main/index.html":
-/*!*****************************!*\
-  !*** ./src/main/index.html ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module parse failed: Unexpected token (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n> <body>\\n|   <button class=\\\"testing-scss\\\">Hello World</button>\\n| </body>\");\n\n//# sourceURL=webpack:///./src/main/index.html?");
-
-/***/ }),
-
 /***/ 0:
-/*!*************************************************************************************!*\
-  !*** multi (webpack)-dev-server/client?http://localhost:8080 ./src/main/index.html ***!
-  \*************************************************************************************/
+/*!*********************************************************************!*\
+  !*** multi (webpack)-dev-server/client?http://localhost:8080 ./src ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! C:\\xampp\\htdocs\\emprego_estagio\\LUX-ONE\\front-end\\github-api-with-vue.js\\node_modules\\webpack-dev-server\\client\\index.js?http://localhost:8080 */\"./node_modules/webpack-dev-server/client/index.js?http://localhost:8080\");\nmodule.exports = __webpack_require__(/*! ./src/main/index.html */\"./src/main/index.html\");\n\n\n//# sourceURL=webpack:///multi_(webpack)-dev-server/client?");
+eval("__webpack_require__(/*! C:\\xampp\\htdocs\\emprego_estagio\\LUX-ONE\\front-end\\github-api-with-vue.js\\node_modules\\webpack-dev-server\\client\\index.js?http://localhost:8080 */\"./node_modules/webpack-dev-server/client/index.js?http://localhost:8080\");\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module './src'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\n//# sourceURL=webpack:///multi_(webpack)-dev-server/client?");
 
 /***/ })
 

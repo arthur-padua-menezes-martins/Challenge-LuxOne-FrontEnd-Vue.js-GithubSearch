@@ -6,3 +6,9 @@ node_modules
 
 # test
 coverage
+
+# bundle
+build/js
+
+# style
+*.scss
