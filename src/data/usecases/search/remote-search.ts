@@ -6,7 +6,7 @@ import {
 
 export class RemoteSearch implements Search {
   constructor (
-    private readonly httpClientGet: IHttpClientGet
+    private readonly httpClientGet: IHttpClientGet<any>
   ) {}
 
   async search (params: ISearchParams): Promise<IHttpResponseBody> {

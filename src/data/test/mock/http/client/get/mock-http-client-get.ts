@@ -2,11 +2,8 @@ import {
   IHttpResponse,
   IHttpClientGet, IHttpClientGetParams
 } from './mock-http-client-get-protocols'
-import {
-  informationsOfHttpResponse
-} from './mock-http-client-get-utils'
 
-class HttpClientGetStub implements IHttpClientGet {
+class HttpClientGetStub implements IHttpClientGet<any> {
   public url: string
 
   constructor (
@@ -14,13 +11,14 @@ class HttpClientGetStub implements IHttpClientGet {
     private readonly client_secret: string
   ) {}
 
-  async get (params: IHttpClientGetParams): Promise<IHttpResponse> {
+  async get (params: IHttpClientGetParams): Promise<IHttpResponse<any>> {
     const { url } = params
 
     this.url = url
 
     return {
-      body: informationsOfHttpResponse.default
+      statusCode: 200,
+      body: {}
     }
   }
 }
