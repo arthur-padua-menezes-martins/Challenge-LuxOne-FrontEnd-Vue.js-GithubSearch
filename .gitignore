@@ -6,7 +6,7 @@ node_modules
 
 # bundle
 dist
-build/js
+build/js/node_modules
 
 # test
 coverage
