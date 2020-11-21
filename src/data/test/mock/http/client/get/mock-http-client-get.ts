@@ -4,7 +4,7 @@ import {
 } from './mock-http-client-get-protocols'
 
 class HttpClientGetStub implements IHttpClientGet<any> {
-  public url: string
+  public url: string = ''
 
   constructor (
     private readonly client_id: string,
