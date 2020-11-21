@@ -1,11 +1,20 @@
 # **[ GITHUB SEARCH ]**
 > # TECNOLOGIAS
 
-**TypeScript**
-* *escalabilidade do código*
+**webpack**
+* *configurações do projeto*
 
-**Vue.js**
-* *desempenho e desenvolvimento rápido*
+**TypeScript**
+* *escalabilidade*
+* *legibilidade*
 
 **jest**
+* *desenvolvimento guiado por testes*
 * *mitigação de erros*
+
+**axios**
+* *realização de requisições*
+
+**Vue.js**
+* *escalabilidade*
+* *desempenho*
