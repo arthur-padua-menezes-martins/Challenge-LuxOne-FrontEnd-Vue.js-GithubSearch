@@ -1,7 +1,7 @@
 <template>
   <main>
     {{number}}
-    <tag v-for="(data, key, index) in vueData" :key="index" >{{ data }}</tag>
+    <componentName></componentName>
   </main>
 </template>
 
