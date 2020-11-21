@@ -1,6 +1,6 @@
 {
   "name": "github-api-with-vue.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --open",
