@@ -1,38 +1,65 @@
 const path = require('path')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: './src/main/index.html',
+  entry: './src/main/main.ts',
   output: {
     path: path.join(__dirname, 'build/js'),
-    publicPath: '/build/js',
+    publicPath: '/build',
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.js', '.vue', '.scss'],
+    extensions: ['.js', '.ts', '.vue', '.scss'],
     alias: {
-      '@': path.join(__dirname, 'src')
+      '@': path.join(__dirname, 'src'),
+      vue$: 'vue/dist/vue.esm.js'
     }
   },
   module: {
-    rules: [{
-      test: /\.ts$/,
-      loader: 'ts-loader',
-      exclude: /node_modules/
-    }, {
-      test: /\.scss$/,
-      use: [{
-        loader: 'style-loader'
-      }, {
-        loader: 'css-loader',
+    rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules|vue\/src/,
+        loader: 'ts-loader',
         options: {
-          modules: true
+          allowTsInNodeModules: true,
+          appendTsSuffixTo: [/\.vue$/]
         }
-      }, {
-        loader: 'scss-loader'
-      }]
-    }]
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            ts: 'ts-loader',
+            scss: 'vue-style-loader!css-loader!sass-loader'
+          }
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'vue-style-loader',
+            options: {
+              modules: true
+            }
+          },
+          {
+            loader: 'scss-loader'
+          },
+          {
+            loader: 'css-loader'
+          }
+        ]
+      }
+    ]
   },
   devServer: {
     contentBase: './build',
@@ -40,6 +67,10 @@ module.exports = {
     historyApiFallback: true
   },
   plugins: [
+    new HtmlWebPackPlugin({
+      template: './build/index.html'
+    }),
+    new VueLoaderPlugin(),
     new CleanWebpackPlugin()
   ]
 }
