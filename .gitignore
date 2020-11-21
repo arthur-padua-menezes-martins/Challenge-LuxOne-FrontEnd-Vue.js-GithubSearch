@@ -4,5 +4,9 @@ node_modules
 # config
 .vscode
 
+# bundle
+dist
+build/js
+
 # test
 coverage

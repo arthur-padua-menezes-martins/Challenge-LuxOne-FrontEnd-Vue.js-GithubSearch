@@ -8,6 +8,7 @@ node_modules
 coverage
 
 # bundle
+dist
 build/js
 
 # style

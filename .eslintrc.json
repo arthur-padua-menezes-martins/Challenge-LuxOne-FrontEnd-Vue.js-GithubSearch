@@ -1,10 +1,14 @@
 {
+  "parser": "vue-eslint-parser",
   "extends": [
     "standard-with-typescript",
-    "plugin:vue/recommended",
-    "plugin:vue/vue3-recommended"
+    "plugin:vue/essential"
   ],
+  "plugins": ["vue"],
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-new": "off"
   }
 }
