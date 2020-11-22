@@ -2,7 +2,7 @@
   <main id="container-page-app">
 
     <section>
-      <ComponentInitialTransition v-show="ComponentInitialTransitionShow"/>
+      <ComponentInitialTransition v-if="ComponentInitialTransitionShow"/>
     </section>
 
     <section id="page-app-search">
