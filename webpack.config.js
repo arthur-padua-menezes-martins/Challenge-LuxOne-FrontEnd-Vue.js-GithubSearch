@@ -12,7 +12,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.ts', '.vue', '.scss'],
+    extensions: ['.js', '.ts', '.vue', '.sass', 'scss'],
     alias: {
       '@': path.join(__dirname, 'src'),
       vue$: 'vue/dist/vue.esm.js'
@@ -30,34 +30,35 @@ module.exports = {
         }
       },
       {
+        test: /\.s(c|a)ss$/,
+        use: [
+          'vue-style-loader',
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                fiber: require('fibers'),
+                indentedSyntax: true
+              }
+            }
+          }
+        ]
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
-            ts: 'ts-loader',
-            scss: 'vue-style-loader!css-loader!sass-loader'
+            ts: 'ts-loader'
           }
         }
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'vue-style-loader',
-            options: {
-              modules: true
-            }
-          },
-          {
-            loader: 'scss-loader'
-          },
-          {
-            loader: 'css-loader'
-          }
-        ]
       }
     ]
   },

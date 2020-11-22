@@ -1,24 +1,26 @@
-<template>
-  <main>
-    {{number}}
-    <componentName></componentName>
-  </main>
+<template id="page-search">
+  <section>
+    <ComponentSearchBar/>
+  </section>
 </template>
 
 <script lang="ts">
 import Vue from '@/main/config/app'
 
-export default Vue.extend({
-  data () {
-    return {
-      number: 0
-    }
+const PageSearch = Vue.component('PageSearch', {
+  el: '#page-search',
+
+  components: {
+
   },
 
-  mounted () {
-    window.setInterval(() => {
-      this.number++
-    }, 1000)
+  methods: {
+
   }
 })
+
+export default PageSearch
 </script>
+
+<style lang="sass">
+</style>

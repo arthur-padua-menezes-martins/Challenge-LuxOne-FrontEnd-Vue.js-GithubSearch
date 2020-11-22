@@ -1,15 +1,14 @@
-import Vue from './config/app'
-import Search from '@/presentation/pages/search/search.vue'
+import Vue from '@/main/config/global'
+import App from '@/presentation/pages/App/App.vue'
 
 new Vue({
   el: document.querySelector('#app') as Element,
 
-  components: {Search},
+  components: {
+    App
+  },
 
   render (create) {
-    return create('Search')
+    return create('App')
   }
 })
-
-
-

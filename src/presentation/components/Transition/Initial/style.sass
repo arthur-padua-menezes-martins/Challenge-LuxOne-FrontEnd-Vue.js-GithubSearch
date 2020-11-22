@@ -1,0 +1,27 @@
+#container-initial-transition
+  margin: auto
+  height: 100vh
+
+.icon-initial-transition 
+  svg 
+    max-height: 33vh
+    min-height: 33vh
+    path
+      fill: transparent
+      stroke-width: 0.4
+      stroke-dasharray: 140
+      stroke-dashoffset: 0
+      stroke: #FFFFFF
+      animation: icon-initial-transition 6s linear forwards
+
+@keyframes icon-initial-transition
+  0%
+    stroke-dashoffset: 0
+  40%
+    stroke-dashoffset: 140
+    fill: transparent
+  75%, 100%
+      fill: #FFFFFF
+      stroke-dashoffset: 140
+
+    
