@@ -25,5 +25,4 @@ const ComponentSearchBar = Vue.component('ComponentSearchBar', {
 export default ComponentSearchBar
 </script>
 
-<style src="./style.sass" lang="sass">
-</style>
+<style src="./style.sass" lang="sass"></style>
