@@ -36,7 +36,7 @@ const ComponentInitialTransition = Vue.component('ComponentInitialTransition', {
     }, 6000)
   }
 })
-console.log(ComponentInitialTransition)
+
 export default ComponentInitialTransition
 </script>
 
