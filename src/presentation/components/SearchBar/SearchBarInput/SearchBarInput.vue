@@ -31,6 +31,7 @@
 <script lang="ts">
 import Vue from '@/main/config/app'
 import SearchBarAutoComplete from '../SearchBarAutoComplete/SearchBarAutoComplete.vue'
+import SearchBarInputController from './script'
 
 const SearchBarInput = Vue.component('SearchBarInput', {
   el: '#component-search-bar-input',
@@ -45,13 +46,19 @@ const SearchBarInput = Vue.component('SearchBarInput', {
 
   data () {
     return {
-      only: false
+      only: false,
+      searchBarInputController: new SearchBarInputController()
     }
   },
 
   mounted () {
     setTimeout(() => {
       this.only = !this.only
+
+      this.searchBarInputController.addListeners(
+        document.querySelector('#search-bar-search'),
+        document.querySelector('#area-search-bar-icon')
+      )
     }, 1000)
   }
 })
