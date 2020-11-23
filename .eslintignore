@@ -11,5 +11,8 @@ coverage
 dist
 build/js
 
+# vue
+.vue
+
 # style
 *.scss
