@@ -1,5 +1,5 @@
-<template id="page-search">
-  <section>
+<template>
+  <section id="page-search">
     <ComponentSearchBar @emit-searching="emitClick"/>
   </section>
 </template>

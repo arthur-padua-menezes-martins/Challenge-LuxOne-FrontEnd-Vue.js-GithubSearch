@@ -2,6 +2,7 @@
   <section id="component-account-informations" class="container flex_center">
     <div id="container-account-informations">
 
+      <ComponentSearchBar @emit-searching="emitClick"/>
       <ComponentPerfilBox></ComponentPerfilBox>
       <ComponentRepositoriesBox></ComponentRepositoriesBox>
 

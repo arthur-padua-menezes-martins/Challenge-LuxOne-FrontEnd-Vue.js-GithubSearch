@@ -1,9 +1,9 @@
 import {
-  RemoteSearch
-} from '@/data/usecases/search/remote-search'
-import {
   SuperSearchBarInputController
 } from './super'
+import {
+  RemoteSearch
+} from '@/data/usecases/search/remote-search'
 
 export default class SearchBarInputController extends SuperSearchBarInputController {
   private readonly authentication: string = `client_id=${this.ClientId}&client_secret=${this.ClientSecret}`
@@ -40,27 +40,25 @@ export default class SearchBarInputController extends SuperSearchBarInputControl
     this.input = input
     this.icon = icon
 
-    icon?.addEventListener('mouseenter', event => {
-      icon?.classList.add('hover__area-search-bar-icon')
-    })
+    this.addListener(
+      icon, ['mouseenter', 'mouseleave', 'click'], 
+      [
+        event => {icon.classList.add('hover__area-search-bar-icon')},
+        event => { icon.classList.remove('hover__area-search-bar-icon')},
+        event => { this.search = search }
+      ]
+    )
 
-    icon?.addEventListener('mouseleave', event => {
-      icon?.classList.remove('hover__area-search-bar-icon')
-    })
-
-    icon?.addEventListener('click', event => {
-      this.search = search
-    })
-
-    input?.addEventListener('keyup', (event: any) => {
-      search = event.target?.value as string
-    })
+    this.addListener(
+      input, 'keyup', (event: any) => {search = event.target?.value as string}
+    )
   }
 
   async searchFor (search: string): Promise<any> {
     try {
-      const user = await this.HttpClient.search({ url: `${this.url}/${search}?${this.authentication}` })
-      const repos = await this.HttpClient.search({ url: `${this.url}/${search}/repos?${this.authentication}` })
+      const [user, repos] = await this.searchInGitHub(
+        this.HttpClient, search, this.authentication
+      )
 
       if (user.statusCode === 200 && repos.statusCode === 200) {
         await this.saveInLocalStorage('@searchs', { ...this.search })

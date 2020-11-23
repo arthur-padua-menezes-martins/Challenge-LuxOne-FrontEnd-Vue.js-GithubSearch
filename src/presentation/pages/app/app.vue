@@ -7,7 +7,7 @@
     </section>
 
     <section>
-      <ComponentChangeTransition v-show="searching" v-if="!ComponentInitialTransitionShow"/>
+      <ComponentChangeTransition v-if="!ComponentInitialTransitionShow && searching"/>
     </section>
 
     <section id="page-app-search">

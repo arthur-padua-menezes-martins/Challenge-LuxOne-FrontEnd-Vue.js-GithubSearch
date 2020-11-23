@@ -1,5 +1,5 @@
-<template id="page-perfil">
-  <section id="container-page-perfil" class="container flex_center">
+<template>
+  <section id="page-perfil" class="container flex-center flex-column">
     <ComponentAccountInformations/>
   </section>
 </template>
@@ -16,7 +16,9 @@ const PagePerfil = Vue.component('PagePerfil', {
   },
 
   methods: {
-
+    emitClick (searchs) {
+      this.$emit('emit-searching', searchs)
+    }
   }
 })
 
