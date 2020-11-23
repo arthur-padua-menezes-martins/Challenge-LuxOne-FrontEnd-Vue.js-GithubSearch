@@ -4,13 +4,14 @@ export interface IHttpResponseBody {
   },
   user: {
     name: string
+    image: string
     organization: string
     location: string
     followers: number
     repositories: number
     stars: number
   },
-  repo: [{
+  repos: [{
     name: string
     description: string
     stars: number

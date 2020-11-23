@@ -9,13 +9,14 @@ export const informationsOfHttpResponse: IInformationsOfHttpResponseTyps = {
   default: {
     user: {
       name: 'any_name',
+      image: 'any_image',
       organization: 'any_organization',
       location: 'any_location',
       followers: 0,
       repositories: 0,
       stars: 0
     },
-    repo: [{
+    repos: [{
       name: 'any_name',
       description: 'any_description',
       stars: 0

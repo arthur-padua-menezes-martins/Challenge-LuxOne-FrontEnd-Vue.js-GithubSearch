@@ -38,29 +38,33 @@ export default class SearchBarInputController extends SuperSearchBarInputControl
   addListeners (input: HTMLElement | null, icon: HTMLElement | null): void {
     let search: string = ''
     this.input = input
-    this.icon = icon
 
     this.addListener(
       icon, ['mouseenter', 'mouseleave', 'click'], 
       [
         event => {icon.classList.add('hover__area-search-bar-icon')},
-        event => { icon.classList.remove('hover__area-search-bar-icon')},
-        event => { this.search = search }
+        event => {icon.classList.remove('hover__area-search-bar-icon')},
+        event => {this.search = search }
       ]
     )
 
     this.addListener(
-      input, 'keyup', (event: any) => {search = event.target.value}
+      input, 
+      ['keyup', 'blur'], 
+      [
+        (event: any) => {search = event.target.value},
+        event => {input.focus()}
+      ]
     )
   }
 
   async searchIn (search: string): Promise<any> {
     try {
-      const [user, repos] = await this.searchInGitHub (
+      const { info, user, repos } = await this.searchInGitHub (
         this.HttpClient, search, this.authentication
       )
 
-      if (user.statusCode === 200 && repos.statusCode === 200) {
+      if (info.statusCode === 200) {
         await this.saveInLocalStorage('@searchs', { ...this.search })
         await this.saveInLocalStorage('@body', Object.assign({}, {user}, {repos}))
       }
