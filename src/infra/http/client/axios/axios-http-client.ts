@@ -6,7 +6,7 @@ import {
 } from './axios-http-client-protocols' 
 
 export class AxiosHttpClient implements IHttpClientGet<any> {
-  async get (params: IHttpClientGetParams): Promise<IHttpResponse<any>> {
+  async search (params: IHttpClientGetParams): Promise<IHttpResponse<any>> {
     const { url } = params
 
     const httpResponse = await axios.get(url)

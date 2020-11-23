@@ -1,19 +1,17 @@
 import {
-  IHttpResponseBody,
+  IHttpResponse,
   IHttpClientGet,
   Search, ISearchParams
 } from './remote-search-protocols'
 
-export class RemoteSearch implements Search {
-  constructor (
-    private readonly httpClientGet: IHttpClientGet<any>
-  ) {}
+export class RemoteSearch implements Search<any> {
+  constructor (private readonly httpClient: IHttpClientGet<any>) {}
 
-  async search (params: ISearchParams): Promise<IHttpResponseBody> {
-    const httpResponse = await this.httpClientGet.get({
-      url: params.url
+  async search (params: ISearchParams): Promise<IHttpResponse<any>> {
+    const { url } = params
+    console.log('url: ', url)
+    return await this.httpClient.search({
+      url
     })
-
-    return httpResponse.body
   }
 }

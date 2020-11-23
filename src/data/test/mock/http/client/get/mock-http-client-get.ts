@@ -11,7 +11,7 @@ class HttpClientGetStub implements IHttpClientGet<any> {
     private readonly client_secret: string
   ) {}
 
-  async get (params: IHttpClientGetParams): Promise<IHttpResponse<any>> {
+  async search (params: IHttpClientGetParams): Promise<IHttpResponse<any>> {
     const { url } = params
 
     this.url = url

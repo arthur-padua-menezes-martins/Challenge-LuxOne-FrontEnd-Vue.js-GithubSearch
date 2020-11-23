@@ -33,7 +33,7 @@ describe('RemoteSearch', () => {
   test('should call httpClientGet with correct values', async () => {
     const { systemUnderTest, httpClientGet } = await makeSystemUnderTest()
 
-    const spyOnGet = jest.spyOn(httpClientGet, 'get')
+    const spyOnGet = jest.spyOn(httpClientGet, 'search')
     await systemUnderTest.search(httpRequest)
 
     expect(spyOnGet).toHaveBeenCalledWith(httpRequest)

@@ -1,5 +1,5 @@
 export {
-  IHttpResponseBody
+  IHttpResponse
 } from '../../protocols/http/response/http-response-interface'
 export {
   IHttpClientGet

@@ -7,6 +7,6 @@ export interface IHttpClientGetParams {
 }
 
 export interface IHttpClientGet<T> {
-  get: (params: IHttpClientGetParams) => Promise<IHttpResponse<T>>
+  search: (params: IHttpClientGetParams) => Promise<IHttpResponse<T>>
 }
 

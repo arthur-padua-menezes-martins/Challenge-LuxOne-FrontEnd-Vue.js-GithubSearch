@@ -26,7 +26,7 @@ describe('AxiosHttpClient', () => {
   test('should call axios with correct method', async () => {
     const { systemUnderTest } = await makeSystemUnderTest()
 
-    await systemUnderTest.get({
+    await systemUnderTest.search({
       url
     })
 
@@ -36,7 +36,7 @@ describe('AxiosHttpClient', () => {
   test('should call axios with correct url', async () => {
     const { systemUnderTest } = await makeSystemUnderTest()
 
-    await systemUnderTest.get({
+    await systemUnderTest.search({
       url
     })
 
@@ -46,7 +46,7 @@ describe('AxiosHttpClient', () => {
   test('should return the correct statusCode', async () => {
     const { systemUnderTest } = await makeSystemUnderTest()
 
-    const httpResponse = await systemUnderTest.get({
+    const httpResponse = await systemUnderTest.search({
       url
     })
 
