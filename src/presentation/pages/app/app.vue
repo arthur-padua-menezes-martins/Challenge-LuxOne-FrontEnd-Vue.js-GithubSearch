@@ -15,7 +15,7 @@
     </section>
 
     <section id="page-app-perfil">
-      <PagePerfil :searches="searches" v-if="!PageSearchShow && !ComponentInitialTransitionShow"/>
+      <PagePerfil @emit-searching="load" :body="JSON.parse(body)" v-if="!PageSearchShow && !ComponentInitialTransitionShow"/>
     </section>
 
     </section>
@@ -45,6 +45,7 @@ const ComponentApp = Vue.extend({
 
       setTimeout(() => {
         this.body = localStorage.getItem('@body')
+        console.log('this.body: ', this.body)
       }, 2000)
 
       setTimeout(() => {
