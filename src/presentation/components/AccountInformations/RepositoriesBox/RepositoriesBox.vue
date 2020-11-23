@@ -1,6 +1,7 @@
 <template>
-  <section id="component-repositories-box">
-      component-repositories-box
+  <section id="component-repositories-box" class="flex-center">
+    <div id="container-repositories-box" class="flex-center flex-column">
+    </div>
   </section>
 </template>
 
@@ -14,7 +15,9 @@ const ComponentRepositoriesBox = Vue.component('ComponentRepositoriesBox', {
     return {
 
     }
-  }
+  },
+
+  props: ['body']
 })
 
 export default ComponentRepositoriesBox

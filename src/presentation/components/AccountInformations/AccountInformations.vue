@@ -3,8 +3,8 @@
     <div id="container-account-informations">
 
       <ComponentSearchBar @emit-searching="emitClick"/>
-      <ComponentPerfilBox></ComponentPerfilBox>
-      <ComponentRepositoriesBox></ComponentRepositoriesBox>
+      <ComponentPerfilBox :body="body"></ComponentPerfilBox>
+      <ComponentRepositoriesBox :body="body"></ComponentRepositoriesBox>
 
     </div>
   </section>
@@ -21,7 +21,15 @@ const AccountInformations = Vue.component('AccountInformations', {
   components: {
     ComponentPerfilBox,
     ComponentRepositoriesBox
-  }
+  },
+
+  methods: {
+    emitClick (searchs) {
+      this.$emit('emit-searching', searchs)
+    }
+  },
+
+  props: ['body']
 })
 
 export default AccountInformations

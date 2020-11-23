@@ -1,6 +1,8 @@
 <template>
   <section id="page-perfil" class="container flex-center flex-column">
-    <ComponentAccountInformations/>
+
+    <ComponentAccountInformations @emit-searching="emitClick" :body="body"/>
+
   </section>
 </template>
 
@@ -19,7 +21,9 @@ const PagePerfil = Vue.component('PagePerfil', {
     emitClick (searchs) {
       this.$emit('emit-searching', searchs)
     }
-  }
+  },
+
+  props: ['body']
 })
 
 export default PagePerfil

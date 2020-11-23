@@ -6,7 +6,7 @@
         <div id="area-search-bar-input-top" class="flex-center flex-space-between">
 
           <article id="area-search-bar-search" class="flex-center">
-            <input autofocus="true" id="search-bar-search" type="text"/>
+            <input autofocus id="search-bar-search" type="text"/>
           </article>
 
           <article id="area-search-bar-icon" class="flex-center trs__one-second">
