@@ -3,11 +3,14 @@
 #container-account-informations
   display: grid
   grid-template-areas: 'component-search-bar component-search-bar' 'component-perfil-box component-repositories-box'
+  grid-template-columns: 28rem auto
   width: 80vw
-  
-  @media (min-width: $first-breakpoint-mobile) 
-    grid-template-areas:  'component-search-bar' 'component-perfil-box' 'component-repositories-box'
-  
+  max-height: 100vh
+  overflow: hidden
+
   #component-search-bar
     height: 30vh
 
+@media (min-width: 1100px)
+  #container-account-informations
+    grid-template-areas: 'component-search-bar' 'component-perfil-box' 'component-repositories-box'
