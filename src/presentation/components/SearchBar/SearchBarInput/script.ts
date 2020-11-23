@@ -27,7 +27,7 @@ export default class SearchBarInputController extends SuperSearchBarInputControl
         this._search.push(search)
       }
 
-      this.searchFor(search)
+      this.searchIn(search)
     }
   }
 
@@ -50,13 +50,13 @@ export default class SearchBarInputController extends SuperSearchBarInputControl
     )
 
     this.addListener(
-      input, 'keyup', (event: any) => {search = event.target?.value as string}
+      input, 'keyup', (event: any) => {search = event.target.value}
     )
   }
 
-  async searchFor (search: string): Promise<any> {
+  async searchIn (search: string): Promise<any> {
     try {
-      const [user, repos] = await this.searchInGitHub(
+      const [user, repos] = await this.searchInGitHub (
         this.HttpClient, search, this.authentication
       )
 
