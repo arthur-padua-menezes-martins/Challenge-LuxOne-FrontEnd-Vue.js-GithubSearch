@@ -5,7 +5,7 @@ export class SuperSearchBarInputController {
 
   }
 
-  saveInLocalStorage (key: string, content: any): void {
+  async saveInLocalStorage (key: string, content: any): Promise<void> {
     localStorage.setItem(
       key, JSON.stringify(content)
     )

@@ -9,7 +9,7 @@
 <script lang="ts">
 import Vue from '@/main/config/app'
 
-const SearchBarAutoComplete = Vue.component('SearchBarAutoComplete', {
+const ComponentSearchBarAutoComplete = Vue.component('ComponentSearchBarAutoComplete', {
   el: '#component-search-bar-auto-complete',
 
   components: {
@@ -21,7 +21,7 @@ const SearchBarAutoComplete = Vue.component('SearchBarAutoComplete', {
   }
 })
 
-export default SearchBarAutoComplete
+export default ComponentSearchBarAutoComplete
 </script>
 
 <style src="./style.sass" lang="sass"></style>

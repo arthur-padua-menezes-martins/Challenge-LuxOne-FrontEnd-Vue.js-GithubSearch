@@ -21,7 +21,9 @@ const ComponentChangeTransition = Vue.component('ComponentChangeTransition', {
   },
 
   data () {
+    return {
 
+    }
   },
 
   mounted () {

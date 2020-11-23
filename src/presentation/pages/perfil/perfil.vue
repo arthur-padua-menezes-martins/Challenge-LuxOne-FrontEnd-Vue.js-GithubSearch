@@ -1,6 +1,8 @@
 <template id="page-perfil">
   <section>
-    page-perfil
+    <input/>
+    PAGE-PERFIL
+    <hr/>
   </section>
 </template>
 

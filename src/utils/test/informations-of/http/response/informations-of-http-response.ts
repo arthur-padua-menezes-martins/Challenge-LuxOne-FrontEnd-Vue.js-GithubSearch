@@ -7,10 +7,18 @@ interface IInformationsOfHttpResponseTyps {
 }
 export const informationsOfHttpResponse: IInformationsOfHttpResponseTyps = {
   default: {
-    organization: 'any_organization',
-    location: 'any_location',
-    followers: 0,
-    repositories: 0,
-    stars: 0
+    user: {
+      name: 'any_name',
+      organization: 'any_organization',
+      location: 'any_location',
+      followers: 0,
+      repositories: 0,
+      stars: 0
+    },
+    repo: [{
+      name: 'any_name',
+      description: 'any_description',
+      stars: 0
+    }]
   }
 }
