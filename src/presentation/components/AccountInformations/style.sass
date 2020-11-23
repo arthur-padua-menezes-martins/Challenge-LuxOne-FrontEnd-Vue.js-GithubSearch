@@ -1,0 +1,7 @@
+@import "@/presentation/style/_global.sass"
+
+#container-account-informations
+  display: grid
+  grid-template-areas: 'component-perfil-box component-repositories-box'
+  @media (min-width: $first-breakpoint-mobile) 
+    grid-template-areas: 'component-perfil-box' 'component-repositories-box'
