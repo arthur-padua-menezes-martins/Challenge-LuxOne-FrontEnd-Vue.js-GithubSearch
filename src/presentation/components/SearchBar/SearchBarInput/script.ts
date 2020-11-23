@@ -8,7 +8,6 @@ import {
 export default class SearchBarInputController extends SuperSearchBarInputController {
   private readonly authentication: string = `client_id=${this.ClientId}&client_secret=${this.ClientSecret}`
   private _search: string[] = []
-  private _searching: boolean = false
   public input?: HTMLElement | null
   public icon?: HTMLElement | null
 
@@ -36,12 +35,6 @@ export default class SearchBarInputController extends SuperSearchBarInputControl
     return this._search
   }
 
-  get searching (): boolean {
-    this._searching = !this._searching
-
-    return this._searching
-  }
-
   addListeners (input: HTMLElement | null, icon: HTMLElement | null): void {
     let search: string = ''
     this.input = input
@@ -65,18 +58,14 @@ export default class SearchBarInputController extends SuperSearchBarInputControl
   }
 
   async searchFor (search: string): Promise<any> {
-    this.saveInLocalStorage('@searching', this.searching)
+    try {
+      const user = await this.HttpClient.search({ url: `${this.url}/${search}?${this.authentication}` })
+      const repos = await this.HttpClient.search({ url: `${this.url}/${search}/repos?${this.authentication}` })
 
-    const user = await this.HttpClient.search({ url: `${this.url}/${search}?${this.authentication}` })
-    const repos = await this.HttpClient.search({ url: `${this.url}/${search}/repos?${this.authentication}` })
-
-    if (user.statusCode === 200 && repos.statusCode === 200) {
-      this.saveInLocalStorage('@searchs', { ...this.search })
-      this.saveInLocalStorage('@body', 
-        Object.assign({}, user, repos)
-      )
-    }
-
-    this.saveInLocalStorage('@searching', this.searching)
+      if (user.statusCode === 200 && repos.statusCode === 200) {
+        await this.saveInLocalStorage('@searchs', { ...this.search })
+        await this.saveInLocalStorage('@body', Object.assign({}, {user}, {repos}))
+      }
+    } catch (error) {}
   }
 }

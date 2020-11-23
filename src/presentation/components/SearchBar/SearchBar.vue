@@ -1,24 +1,28 @@
 <template>
   <section id="component-search-bar">
     <div id="container-search-bar">
-      <SearchBarInput/>
+
+      <ComponentSearchBarInput @emit-searching="emitClick"/>
+
     </div>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from '@/main/config/app'
-import SearchBarInput from './SearchBarInput/SearchBarInput.vue'
+import ComponentSearchBarInput from './SearchBarInput/SearchBarInput.vue'
 
 const ComponentSearchBar = Vue.component('ComponentSearchBar', {
   el: '#component-search-bar',
 
   components: {
-    SearchBarInput
+    ComponentSearchBarInput
   },
 
   methods: {
-
+    emitClick (searchs) {
+      this.$emit('emit-searching', searchs)
+    }
   }
 })
 

@@ -1,22 +1,24 @@
-<template id="page-app">
-  <main id="container-page-app">
+<template >
+  <main id="page-app">
+    <section id="container-page-app">
 
     <section>
       <ComponentInitialTransition v-if="ComponentInitialTransitionShow"/>
     </section>
 
     <section>
-      <ComponentChangeTransition v-if="!ComponentInitialTransitionShow"/>
+      <ComponentChangeTransition v-show="searching" v-if="!ComponentInitialTransitionShow"/>
     </section>
 
     <section id="page-app-search">
-      <PageSearch v-if="!ComponentInitialTransitionShow"/>
+      <PageSearch @emit-searching="load" v-if="PageSearchShow && !ComponentInitialTransitionShow"/>
     </section>
 
     <section id="page-app-perfil">
-      <PagePerfil v-if="PageSearchShow === false && ComponentInitialTransitionShow === false"/>
+      <PagePerfil :searches="searches" v-if="!PageSearchShow && !ComponentInitialTransitionShow"/>
     </section>
 
+    </section>
   </main>
 </template>
 
@@ -32,24 +34,44 @@ const ComponentApp = Vue.extend({
   },
 
   methods: {
-
+    load (searches) {
+      this.searches = searches
+    }
   },
 
   watch: {
-    searching (newValue, OldValue) {
+    searches (newValue, oldValue) {
+      this.searching = true
 
+      setTimeout(() => {
+        this.body = localStorage.getItem('@body')
+      }, 2000)
+
+      setTimeout(() => {
+        this.searching = !this.searching
+      }, 6000)
+    },
+
+    body (newValue, oldValue) {
+      if (this.searches > 0 && this.body !== '') {
+        this.PageSearchShow = false
+      }
     }
   },
 
   data () {
     return {
-      ComponentInitialTransitionShow: true,
       PageSearchShow: true,
-      searching: localStorage.getItem('@searching')
+      ComponentInitialTransitionShow: true,
+      searches: 0,
+      searching: false,
+      body: undefined
     }
   },
 
   mounted () {
+    localStorage.setItem('@body', '')
+
     setTimeout(() => {
       this.ComponentInitialTransitionShow = !this.ComponentInitialTransitionShow
     }, 8000)
@@ -59,6 +81,4 @@ const ComponentApp = Vue.extend({
 export default ComponentApp
 </script>
 
-<style lang="sass">
-@import "@/presentation/style/_global.sass"
-</style>
+<style lang="sass"></style>

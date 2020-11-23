@@ -1,6 +1,6 @@
 <template id="page-search">
   <section>
-    <ComponentSearchBar/>
+    <ComponentSearchBar @emit-searching="emitClick"/>
   </section>
 </template>
 
@@ -15,7 +15,9 @@ const PageSearch = Vue.component('PageSearch', {
   },
 
   methods: {
-
+    emitClick (searchs) {
+      this.$emit('emit-searching', searchs)
+    }
   }
 })
 
