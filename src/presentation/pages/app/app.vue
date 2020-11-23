@@ -5,8 +5,12 @@
       <ComponentInitialTransition v-if="ComponentInitialTransitionShow"/>
     </section>
 
+    <section>
+      <ComponentChangeTransition v-if="!ComponentInitialTransitionShow"/>
+    </section>
+
     <section id="page-app-search">
-      <PageSearch v-if="ComponentInitialTransitionShow === false"/>
+      <PageSearch v-if="!ComponentInitialTransitionShow"/>
     </section>
 
     <section id="page-app-perfil">
@@ -31,10 +35,17 @@ const ComponentApp = Vue.extend({
 
   },
 
+  watch: {
+    searching (newValue, OldValue) {
+
+    }
+  },
+
   data () {
     return {
       ComponentInitialTransitionShow: true,
-      PageSearchShow: true
+      PageSearchShow: true,
+      searching: localStorage.getItem('@searching')
     }
   },
 

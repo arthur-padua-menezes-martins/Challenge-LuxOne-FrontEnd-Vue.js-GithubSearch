@@ -1,7 +1,7 @@
 <template>
   <section id="component-search-bar-auto-complete">
     <div id="container-search-bar-auto-complete">
-      SearchBarAutoComplete
+
     </div>
   </section>
 </template>

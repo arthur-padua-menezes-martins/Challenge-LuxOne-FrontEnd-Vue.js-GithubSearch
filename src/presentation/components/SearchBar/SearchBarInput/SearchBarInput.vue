@@ -19,7 +19,7 @@
 
         <div id="area-search-bar-input-bottom">
 
-          <!-- <SearchBarAutoComplete/> -->
+           <SearchBarAutoComplete/>
 
         </div>
 
@@ -29,10 +29,13 @@
 </template>
 
 <script lang="ts">
+import SearchBarInputController from './script'
 import Vue from '@/main/config/app'
 import SearchBarAutoComplete from '../SearchBarAutoComplete/SearchBarAutoComplete.vue'
-import SearchBarInputController from './script'
+import { RemoteSearch } from '@/data/usecases/search/remote-search'
+import { AxiosHttpClient } from '@/infra/http/client/axios/axios-http-client'
 
+const searchBarInputController = new SearchBarInputController(new RemoteSearch(new AxiosHttpClient()), 'Iv1.7d19a7a525c26fbd', '3db4ec906578e2c3a85c06103e3891644217c74e')
 const SearchBarInput = Vue.component('SearchBarInput', {
   el: '#component-search-bar-input',
 
@@ -47,7 +50,8 @@ const SearchBarInput = Vue.component('SearchBarInput', {
   data () {
     return {
       only: false,
-      searchBarInputController: new SearchBarInputController()
+      searching: false,
+      searchBarInputController: searchBarInputController
     }
   },
 
@@ -66,6 +70,4 @@ const SearchBarInput = Vue.component('SearchBarInput', {
 export default SearchBarInput
 </script>
 
-<style src="./style.sass" lang="sass">
-@import "@/presentation/style/_global.sass"
-</style>
+<style src="./style.sass" lang="sass"></style>
