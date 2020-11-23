@@ -6,11 +6,11 @@
   grid-template-columns: 28rem auto
   width: 80vw
   max-height: 100vh
-  overflow: hidden
 
   #component-search-bar
     height: 30vh
 
-@media (min-width: 1100px)
+@media (max-width: $first-breakpoint-mobile)
   #container-account-informations
+    grid-template-columns: 1FR
     grid-template-areas: 'component-search-bar' 'component-perfil-box' 'component-repositories-box'

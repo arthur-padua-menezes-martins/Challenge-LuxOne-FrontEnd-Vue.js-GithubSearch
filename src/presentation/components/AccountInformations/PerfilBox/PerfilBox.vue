@@ -1,7 +1,7 @@
 <template>
-  <section id="component-perfil-box" class="efc__box-shadow">
+  <section id="component-perfil-box">
 
-    <section id="container-perfil-box" class="mov_relative">
+    <section id="container-perfil-box" class="mov_relative efc__box-shadow-thin">
 
       <div id="container-perfil-box-image" class="mov__relative">
 
@@ -61,10 +61,6 @@ const ComponentPerfilBox = Vue.component('ComponentPerfilBox', {
     return {
 
     }
-  },
-
-  mounted () {
-    console.log(this.body)
   },
 
   props: ['body']

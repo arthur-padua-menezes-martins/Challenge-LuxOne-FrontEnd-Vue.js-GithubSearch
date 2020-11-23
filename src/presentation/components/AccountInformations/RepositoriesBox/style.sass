@@ -2,3 +2,43 @@
 
 #component-repositories-box
   grid-area: component-repositories-box
+  margin: 0rem auto
+  align-items: baseline
+  max-height: 34rem
+
+#container-repositories-box
+  & > div:first-child
+    border-radius: 2.5rem 2.5rem 0rem 0rem 
+  & > div:last-child
+    border-radius: 0rem 0rem 2.5rem 2.5rem
+    
+.item-repositories-box
+  margin: 0rem auto 2.5rem auto
+  min-width: 90%
+  width: 90%
+  height: 12rem
+  background-color: $black-primary
+  border: 0.2rem $dark-secondary solid
+  div
+    margin: auto
+    display: flex
+    align-items: center
+    width: 90%
+  div:nth-child(1)
+    height: 3.2rem
+    color: rgb(239, 239, 239)
+    span
+      font-size: 1.6rem
+      font-weight: 700
+  div:nth-child(2)
+    height: 4.8rem
+    color: rgba(239, 239, 239, 0.8)
+    span
+      font-size: 1.2rem
+      text-overflow: ellipsis
+  div:nth-child(3)
+    height: 3.2rem
+    color: rgba(239, 239, 239, 0.6)
+    span
+      margin-right: 0.4rem 
+      font-size: 1.2rem

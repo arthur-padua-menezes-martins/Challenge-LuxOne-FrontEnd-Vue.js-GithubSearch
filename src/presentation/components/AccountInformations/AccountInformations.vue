@@ -30,6 +30,7 @@ const AccountInformations = Vue.component('AccountInformations', {
   },
 
   props: ['body']
+
 })
 
 export default AccountInformations

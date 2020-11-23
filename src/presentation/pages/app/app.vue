@@ -6,7 +6,7 @@
       <ComponentInitialTransition v-if="ComponentInitialTransitionShow"/>
     </section>
 
-    <section>
+    <section style="height: 100%">
       <ComponentChangeTransition v-if="!ComponentInitialTransitionShow && searching"/>
     </section>
 
