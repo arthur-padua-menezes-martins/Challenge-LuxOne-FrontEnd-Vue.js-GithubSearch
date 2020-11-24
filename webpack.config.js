@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/main/main.ts',
   output: {
     path: path.join(__dirname, 'build/js'),
