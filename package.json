@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "dev": "node build / dev-server.js",
-    "build": "webpack",
-    "postinstall": "npm run build",
+    "dev": "webpack-dev-server --hot --open",
     "start": "node server.js",
     "test": "jest --passWithNoTests --runInBand --no-cache",
     "test:watch": "npm test -- --watch"
